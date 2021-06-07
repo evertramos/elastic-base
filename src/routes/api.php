@@ -2,7 +2,7 @@
 
 use Evertramos\ElasticBase\App\Controllers\ElasticBaseController;
 
-Route::middleware('auth:sanctum')->group(function() {
+Route::middleware(['api', 'auth:sanctum'])->group(function() {
     Route::prefix('elastic-base')->group(function () {
 
         Route::get('/status', [ElasticBaseController::class, 'status']);
