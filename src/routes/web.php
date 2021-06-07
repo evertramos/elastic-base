@@ -1,7 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Elasticsearch\ClientBuilder;
+// use Elasticsearch\ClientBuilder;
 
 Route::get('/vai', function () {
 
@@ -11,7 +10,7 @@ Route::get('/vai', function () {
     //     'body'  => [
     //         'query' => [
     //             'match' => [
-    //                 'ttachment.content' => 'text'
+    //                 'attachment.content' => 'text'
     //             ]
     //         ]
     //     ]
