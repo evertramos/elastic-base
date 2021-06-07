@@ -1,0 +1,28 @@
+{
+    "name": "evertramos/elasticbase",
+    "description": "Elastic API support for Laravel",
+    "version": "1.0.0",
+    "require": {
+        "illuminate/support": "^7.0|^8.0",
+        "elasticsearch/elasticsearch": "^7.13"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Evert Ramos",
+            "email": "evert.ramos@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Evertramos\\Elasticbase\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Evertramos\\Elasticbase\\ElasticbaseServiceProvider"
+            ]
+        }
+    }
+}
