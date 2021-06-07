@@ -1,6 +1,7 @@
 <?php
 
-use Evertramos\Elasticbase\App\Providers\ElasticBaseController;
+use Evertramos\Elasticbase\App\Controllers\ElasticBaseController;
+
 // use Elasticsearch\ClientBuilder;
 
 Route::get('/foi', [ElasticBaseController::class, 'index']);
