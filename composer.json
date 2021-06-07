@@ -15,13 +15,13 @@
     ],
     "autoload": {
         "psr-4": {
-            "Evertramos\\Elasticbase\\": "src"
+            "Evertramos\\ElasticBase\\": "src"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Evertramos\\Elasticbase\\ElasticbaseServiceProvider"
+                "Evertramos\\ElasticBase\\ElasticbaseServiceProvider"
             ]
         }
     }
