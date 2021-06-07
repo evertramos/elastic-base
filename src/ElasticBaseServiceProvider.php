@@ -1,10 +1,10 @@
 <?php
 
-namespace Elasticbase\Providers;
+namespace Evertramos\ElasticBase\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class ElasticbaseServiceProvider extends ServiceProvider
+class ElasticBaseServiceProvider extends ServiceProvider
 {
     public function boot()
     {

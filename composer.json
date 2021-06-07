@@ -21,7 +21,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Evertramos\\ElasticBase\\ElasticbaseServiceProvider"
+                "Evertramos\\ElasticBase\\ElasticBaseServiceProvider"
             ]
         }
     }
