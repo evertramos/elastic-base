@@ -19,6 +19,6 @@ Route::get('/vai', function () {
     // $response = $client->search($params);
     // print_r($response);
 
-    return 'vai...';
+    return 'vai...!!!!';
 });
 
