@@ -1,6 +1,7 @@
 {
     "name": "evertramos/elastic-base",
     "description": "Elastic API support for Laravel",
+    "version": "0.1",
     "require": {
         "illuminate/support": "^7.0|^8.0",
         "elasticsearch/elasticsearch": "^7.13"
