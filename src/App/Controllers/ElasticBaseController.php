@@ -1,6 +1,6 @@
 <?php
 
-namespace Evertramos\Elasticbase;
+namespace Evertramos\ElasticBase\App\Controllers;
 
 Class ElasticBaseController
 {

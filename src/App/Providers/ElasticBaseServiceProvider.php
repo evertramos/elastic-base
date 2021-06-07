@@ -1,6 +1,6 @@
 <?php
 
-namespace Evertramos\Elasticbase\App\Providers;
+namespace Evertramos\ElasticBase\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
