@@ -1,6 +1,6 @@
 <?php
 
-use Evertramos\Elasticbase\App\Controllers\ElasticBaseController;
+use Evertramos\Elasticbase\ElasticBaseController;
 
 // use Elasticsearch\ClientBuilder;
 
