@@ -8,4 +8,9 @@ Class ElasticBaseController
     {
         return 'index from controller....';
     }
+
+    public function status()
+    {
+        return 'tudo ok!';
+    }
 }
