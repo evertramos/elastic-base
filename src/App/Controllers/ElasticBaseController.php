@@ -3,6 +3,7 @@
 namespace Evertramos\ElasticBase\App\Controllers;
 
 use Elasticsearch\ClientBuilder;
+use Illuminate\Support\Facades\Response;
 
 Class ElasticBaseController
 {
@@ -17,13 +18,39 @@ Class ElasticBaseController
             ->build();
     }
 
+    public function indexExists($index_name)
+    {
+        $params = [
+            'index' => $index_name
+        ];
+
+        return $this->client->indices()->exists($params);
+    }
+
     public function createIndex($index_name)
     {
         $params = [
             'index' => $index_name
         ];
 
-        return $this->client->indices()->create($params);
+        if ($this->indexExists($index_name)) {
+            return Response::json(['error' => 'Index ' . $index_name . ' already exist in this host.']);
+        } else {
+            return $this->client->indices()->create($params);
+        }
+    }
+
+    public function deleteIndex($index_name)
+    {
+        $params = [
+            'index' => $index_name
+        ];
+
+        if ($this->indexExists($index_name)) {
+            return $this->client->indices()->delete($params);
+        } else {
+            return Response::json(['error' => 'Index ' . $index_name . ' does not exist in this host.']);
+        }
     }
 
     public function index()
