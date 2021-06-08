@@ -22,31 +22,37 @@ Class ElasticBaseController
         return 'index from controller....';
     }
 
-    public function status()
+    public function info()
     {
-        return 'tudo ok!';
+        return $this->client->info();
     }
 
+    public function status()
+    {
+        return $this->client->ping();
+    }
 
-// Route::get('/foi', [ElasticBaseController::class, 'index']);
-//
-// Route::get('/vai', function () {
-//
-//     // $client = ClientBuilder::create()->build();
-//     // $params = [
-//     //     'index' => 'my_index',
-//     //     'body'  => [
-//     //         'query' => [
-//     //             'match' => [
-//     //                 'attachment.content' => 'text'
-//     //             ]
-//     //         ]
-//     //     ]
-//     // ];
-//     // $response = $client->search($params);
-//     // print_r($response);
-//
-//     return 'vai...!!!!';
-// });
+    public function search($index, $query_string, $highlight = false, $query_match = 'content')
+    {
+        $params = [
+            'index' => $index,
+            'body'  => [
+                'query' => [
+                    'match' => [
+                        $query_match => $query_string
+                    ]
+                ]
+            ]
+        ];
 
+        if ($highlight) {
+            $params['body']['highlight'] = [
+                'fields' => [
+                    $query_match => new \stdClass()
+                ]
+            ];
+        }
+
+        return $this->client->search($params);
+    }
 }
