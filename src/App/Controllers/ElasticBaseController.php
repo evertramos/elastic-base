@@ -20,34 +20,22 @@ Class ElasticBaseController
 
     public function indexExists($index_name)
     {
-        $params = [
-            'index' => $index_name
-        ];
-
-        return $this->client->indices()->exists($params);
+        return $this->client->indices()->exists($this->mountIndexParams($index_name));
     }
 
     public function createIndex($index_name)
     {
-        $params = [
-            'index' => $index_name
-        ];
-
         if ($this->indexExists($index_name)) {
             return Response::json(['error' => 'Index ' . $index_name . ' already exist in this host.']);
         } else {
-            return $this->client->indices()->create($params);
+            return $this->client->indices()->create($this->mountIndexParams($index_name));
         }
     }
 
     public function deleteIndex($index_name)
     {
-        $params = [
-            'index' => $index_name
-        ];
-
         if ($this->indexExists($index_name)) {
-            return $this->client->indices()->delete($params);
+            return $this->client->indices()->delete($this->mountIndexParams($index_name));
         } else {
             return Response::json(['error' => 'Index ' . $index_name . ' does not exist in this host.']);
         }
@@ -90,5 +78,16 @@ Class ElasticBaseController
         }
 
         return $this->client->search($params);
+    }
+
+    private function mountIndexParams($data)
+    {
+        $data = rtrim($data,',');
+
+        $response = [
+            'index' => strpos($data, ',') ? explode(',', $data) : $data
+        ];
+
+        return $response;
     }
 }
