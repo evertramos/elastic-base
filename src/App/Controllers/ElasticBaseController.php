@@ -2,8 +2,21 @@
 
 namespace Evertramos\ElasticBase\App\Controllers;
 
+use Elasticsearch\ClientBuilder;
+
 Class ElasticBaseController
 {
+    protected $client;
+
+    public function __construct()
+    {
+        $hosts = explode(',', config('elasticbase.elastic_hosts'));
+
+        $this->client = ClientBuilder::create()
+            ->setHosts($hosts)
+            ->build();
+    }
+
     public function index()
     {
         return 'index from controller....';
@@ -14,7 +27,6 @@ Class ElasticBaseController
         return 'tudo ok!';
     }
 
-    // use Elasticsearch\ClientBuilder;
 
 // Route::get('/foi', [ElasticBaseController::class, 'index']);
 //
