@@ -17,6 +17,15 @@ Class ElasticBaseController
             ->build();
     }
 
+    public function createIndex($index_name)
+    {
+        $params = [
+            'index' => $index_name
+        ];
+
+        return $this->client->indices()->create($params);
+    }
+
     public function index()
     {
         return 'index from controller....';
